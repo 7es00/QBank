@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Star, Users, BookOpen } from "lucide-react";
-import heroEducation from "@/assets/hero-education.jpg";
+import heroEducation from "@/assets/hsero-education.jpg";
 
 const HeroSection = () => {
   return (
