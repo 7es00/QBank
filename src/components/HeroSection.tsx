@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Star, Users, BookOpen } from "lucide-react";
-import heroEducation from "@/assets/hero-education.jpg";
+import heroEducation from "@/assets/hero-education.png";
 
 const HeroSection = () => {
   return (
@@ -8,8 +8,14 @@ const HeroSection = () => {
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-20 h-20 rounded-full bg-white animate-float"></div>
-        <div className="absolute top-40 right-20 w-16 h-16 rounded-full bg-white/50 animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-20 left-1/4 w-12 h-12 rounded-full bg-white/30 animate-float" style={{ animationDelay: '4s' }}></div>
+        <div
+          className="absolute top-40 right-20 w-16 h-16 rounded-full bg-white/50 animate-float"
+          style={{ animationDelay: "2s" }}
+        ></div>
+        <div
+          className="absolute bottom-20 left-1/4 w-12 h-12 rounded-full bg-white/30 animate-float"
+          style={{ animationDelay: "4s" }}
+        ></div>
       </div>
 
       <div className="container-educational relative">
@@ -18,34 +24,33 @@ const HeroSection = () => {
           <div className="text-white animate-fade-in-up">
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm mb-6">
               <Star className="w-4 h-4 text-yellow-300 mr-2" />
-              <span className="text-sm font-medium">Trusted by 50,000+ Students</span>
+              <span className="text-sm font-medium">
+                Trusted by 50,000+ Students
+              </span>
             </div>
-            
+
             <h1 className="text-heading-1 mb-6">
               Master Any Subject with
               <span className="block text-transparent bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text">
                 Expert Question Banks
               </span>
             </h1>
-            
+
             <p className="text-xl text-white/90 mb-8 leading-relaxed">
-              Access premium question banks across multiple subjects. Practice with instant feedback, 
-              track your progress, and ace your exams with confidence.
+              Access premium question banks across multiple subjects. Practice
+              with instant feedback, track your progress, and ace your exams
+              with confidence.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-white/90 font-semibold px-8 py-4 rounded-xl">
-                Browse Question Banks
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="border-white/30 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-xl"
+            <div className="mb-8">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-white/30 text-[#BE0C34] hover:bg-white/10 hover:text-white font-semibold px-8 py-4 rounded-xl"
               >
-                <Play className="w-5 h-5 mr-2" />
-                Watch Demo
+                Browse Question Banks
+                <ArrowRight className="w-5 h-5 mr-2" />
               </Button>
             </div>
 
@@ -67,14 +72,17 @@ const HeroSection = () => {
           </div>
 
           {/* Hero Image */}
-          <div className="relative animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+          <div
+            className="relative animate-fade-in-up"
+            style={{ animationDelay: "0.3s" }}
+          >
             <div className="relative z-10">
-              <img 
+              <img
                 src={heroEducation}
                 alt="Educational Platform"
-                className="rounded-2xl shadow-2xl w-full h-auto"
+                className="rounded-2xl  w-fit h-auto"
               />
-              
+
               {/* Floating cards */}
               <div className="absolute -top-6 -left-6 bg-white rounded-xl p-4 shadow-lg animate-bounce-subtle">
                 <div className="flex items-center space-x-2">
@@ -82,19 +90,26 @@ const HeroSection = () => {
                     <BookOpen className="w-4 h-4 text-green-600" />
                   </div>
                   <div>
-                    <div className="text-sm font-medium text-gray-900">Mathematics</div>
+                    <div className="text-sm font-medium text-gray-900">
+                      Mathematics
+                    </div>
                     <div className="text-xs text-gray-500">850 Questions</div>
                   </div>
                 </div>
               </div>
 
-              <div className="absolute -bottom-6 -right-6 bg-white rounded-xl p-4 shadow-lg animate-bounce-subtle" style={{ animationDelay: '1s' }}>
+              <div
+                className="absolute -bottom-1 -right-6 bg-white rounded-xl p-4 shadow-lg animate-bounce-subtle"
+                style={{ animationDelay: "1s" }}
+              >
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
                     <Users className="w-4 h-4 text-blue-600" />
                   </div>
                   <div>
-                    <div className="text-sm font-medium text-gray-900">12,450</div>
+                    <div className="text-sm font-medium text-gray-900">
+                      12,450
+                    </div>
                     <div className="text-xs text-gray-500">Active Learners</div>
                   </div>
                 </div>
