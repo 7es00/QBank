@@ -8,9 +8,7 @@ interface QuestionBankCardProps {
   description: string;
   image: string;
   price: number;
-  rating: number;
   totalQuestions: number;
-  enrolledUsers: number;
   category: string;
   level: "Beginner" | "Intermediate" | "Advanced";
   duration: string;
@@ -21,9 +19,7 @@ const QuestionBankCard = ({
   description,
   image,
   price,
-  rating,
   totalQuestions,
-  enrolledUsers,
   category,
   level,
   duration,
@@ -45,8 +41,8 @@ const QuestionBankCard = ({
     <div className="card-question-bank group">
       {/* Image */}
       <div className="relative overflow-hidden rounded-lg mb-4">
-        <img 
-          src={image} 
+        <img
+          src={image}
           alt={title}
           className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
         />
@@ -56,9 +52,7 @@ const QuestionBankCard = ({
           </Badge>
         </div>
         <div className="absolute top-3 right-3">
-          <Badge className={`${getLevelColor(level)} border-0`}>
-            {level}
-          </Badge>
+          <Badge className={`${getLevelColor(level)} border-0`}>{level}</Badge>
         </div>
       </div>
 
@@ -67,29 +61,18 @@ const QuestionBankCard = ({
         <h3 className="text-xl font-semibold font-poppins text-gray-900 group-hover:text-primary transition-colors">
           {title}
         </h3>
-        
-        <p className="text-gray-600 text-sm line-clamp-2">
-          {description}
-        </p>
 
-        {/* Stats */}
+        <p className="text-gray-600 text-sm line-clamp-2">{description}</p>
+
         <div className="flex items-center justify-between text-sm text-gray-500">
-          <div className="flex items-center space-x-1">
-            <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-            <span className="font-medium">{rating}</span>
-          </div>
-          <div className="flex items-center space-x-1">
-            <Users className="w-4 h-4" />
-            <span>{enrolledUsers.toLocaleString()}</span>
-          </div>
-          <div className="flex items-center space-x-1">
+          <div className="flex items-center text-gray-500 space-x-1">
             <Clock className="w-4 h-4" />
             <span>{duration}</span>
           </div>
-        </div>
-
-        <div className="text-sm text-gray-600">
-          <span className="font-medium">{totalQuestions}</span> Questions Available
+          <div>
+            <span className="font-bold ">{totalQuestions}</span>
+            <span> Questions</span>
+          </div>
         </div>
 
         {/* Price and CTA */}

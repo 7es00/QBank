@@ -39,24 +39,6 @@ const FeaturesSection = () => {
     }
   ];
 
-  const securityFeatures = [
-    {
-      icon: Shield,
-      title: "Screenshot Protection",
-      description: "Advanced technology prevents unauthorized capturing of question content."
-    },
-    {
-      icon: Users,
-      title: "Single Device Access",
-      description: "Each account is limited to one active device to prevent sharing."
-    },
-    {
-      icon: Clock,
-      title: "Session Management",
-      description: "Automatic logout and session monitoring for enhanced security."
-    }
-  ];
-
   const learningFeatures = [
     {
       icon: Award,
@@ -82,7 +64,7 @@ const FeaturesSection = () => {
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-heading-2 mb-4">
             Powerful Features for
-            <span className="text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text">
+            <span className="text-transparent bg-gradient-to-r from-[#AF0936] to-[#d1426b] bg-clip-text">
               {" "}Effective Learning
             </span>
           </h2>
@@ -109,36 +91,7 @@ const FeaturesSection = () => {
           ))}
         </div>
 
-        {/* Security Features Section */}
-        <div className="mb-20 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-          <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-3xl p-8 lg:p-12">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 text-red-600 rounded-2xl mb-4">
-                <Shield className="w-8 h-8" />
-              </div>
-              <h3 className="text-heading-3 mb-4 text-gray-900">Advanced Security Features</h3>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Protecting intellectual property and ensuring fair usage with state-of-the-art security measures
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {securityFeatures.map((feature, index) => (
-                <div key={feature.title} className="text-center">
-                  <div className="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <feature.icon className="w-6 h-6" />
-                  </div>
-                  <h4 className="text-lg font-semibold font-poppins mb-2 text-gray-900">
-                    {feature.title}
-                  </h4>
-                  <p className="text-gray-600">
-                    {feature.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+ 
 
         {/* Learning Enhancement Features */}
         <div className="mb-16 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
@@ -168,22 +121,17 @@ const FeaturesSection = () => {
 
         {/* CTA Section */}
         <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-          <div className="gradient-primary rounded-3xl p-8 lg:p-12 text-white">
+          <div className="bg-gradient-to-tr from-[#bc0d44] via-primary to-[#bc0d44] rounded-3xl p-8 lg:p-12 text-white">
             <h3 className="text-heading-3 mb-4">Ready to Transform Your Learning?</h3>
             <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
               Join thousands of successful students who have achieved their academic goals with our platform
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-4 rounded-xl">
+            <div className="flex justify-center">
+              <Button size="lg" variant="outline" className=" border-white/30 text-primary hover:bg-white/10 hover:text-white font-semibold px-8 py-4 rounded-xl">
                 Start Learning Today
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="border-white/30 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-xl"
-              >
-                Schedule Demo
-              </Button>
+             
+             
             </div>
           </div>
         </div>

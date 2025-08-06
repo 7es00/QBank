@@ -1,8 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Star, Users, BookOpen } from "lucide-react";
 import heroEducation from "@/assets/hero-education.png";
+import { useNavigate } from "react-router-dom";
+
+
+
+
+
 
 const HeroSection = () => {
+
+
+function  handleQuestionBankSectionClick (){
+  const section = document.getElementById("QuestionBankSection");
+  if (section) section.scrollIntoView({ behavior: "smooth" });
+
+};
+
   return (
     <section className="section-padding gradient-hero relative overflow-hidden">
       {/* Background decorative elements */}
@@ -47,7 +61,8 @@ const HeroSection = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white/30 text-[#BE0C34] hover:bg-white/10 hover:text-white font-semibold px-8 py-4 rounded-xl"
+                className="border-white/30 text-primary hover:bg-white/10 hover:text-white font-semibold px-8 py-4 rounded-xl"
+              onClick={handleQuestionBankSectionClick}
               >
                 Browse Question Banks
                 <ArrowRight className="w-5 h-5 mr-2" />

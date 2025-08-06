@@ -47,7 +47,7 @@ const Header = () => {
             <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center">
               <BookOpen className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold font-poppins bg-gradient-to-r from-[#AF0936] to-[#d1426b] bg-clip-text text-transparent">
+            <span className="text-xl font-bold font-poppins bg-gradient-to-r from-primary to-[#d1426b] bg-clip-text text-transparent">
               QuestionBanks
             </span>
           </div>
