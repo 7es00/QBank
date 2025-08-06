@@ -109,7 +109,7 @@ const QuestionBanksSection = () => {
         <div className="text-center mb-12 animate-fade-in-up">
           <h2 className="text-heading-2 mb-4">
             Explore Our 
-            <span className="text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text">
+            <span className="text-transparent bg-gradient-to-r from-[#AF0936] to-[#d1426b] bg-clip-text">
               {" "}Question Banks
             </span>
           </h2>

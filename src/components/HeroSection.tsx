@@ -29,9 +29,9 @@ const HeroSection = () => {
               </span>
             </div>
 
-            <h1 className="text-heading-1 mb-6">
+            <h1 className="text-heading-1 mb-6 ">
               Master Any Subject with
-              <span className="block text-transparent bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text">
+              <span className="block  bg-clip-text text-[#F3729F]">
                 Expert Question Banks
               </span>
             </h1>

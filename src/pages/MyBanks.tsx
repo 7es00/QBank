@@ -4,16 +4,14 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { 
-  Play, 
-  BarChart3, 
-  Clock, 
-  Calendar, 
-  Trophy, 
+import {
+  Play,
+  BarChart3,
+  Clock,
+  Calendar,
+  Trophy,
   Target,
   BookOpen,
-  ArrowRight,
-  Download,
   RefreshCw
 } from "lucide-react";
 import Header from "@/components/Header";
@@ -89,10 +87,11 @@ const MyBanks = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <div className="section-padding bg-gradient-to-b from-blue-50 to-white">
         <div className="container-educational">
-          {/* Header */}
+
+          {/* Title + Description */}
           <div className="mb-12 animate-fade-in-up">
             <h1 className="text-heading-2 mb-4">
               My Question Banks
@@ -134,6 +133,7 @@ const MyBanks = () => {
             </Card>
           </div>
 
+          {/* Main Tabs Section */}
           <Tabs defaultValue="banks" className="space-y-8">
             <TabsList className="grid w-full grid-cols-3 max-w-md mx-auto">
               <TabsTrigger value="banks">My Banks</TabsTrigger>
@@ -146,10 +146,11 @@ const MyBanks = () => {
               {myQuestionBanks.map((bank) => (
                 <Card key={bank.id} className="p-6 hover:shadow-lg transition-all duration-300">
                   <div className="flex flex-col lg:flex-row lg:items-center gap-6">
+
                     {/* Bank Info */}
                     <div className="flex items-center space-x-4 flex-1">
-                      <img 
-                        src={bank.image} 
+                      <img
+                        src={bank.image}
                         alt={bank.title}
                         className="w-16 h-16 rounded-xl object-cover"
                       />
@@ -158,7 +159,7 @@ const MyBanks = () => {
                           <h3 className="text-xl font-semibold text-gray-900">
                             {bank.title}
                           </h3>
-                          <Badge 
+                          <Badge
                             variant={bank.status === 'active' ? 'default' : 'destructive'}
                             className={bank.status === 'active' ? 'gradient-primary text-white border-0' : ''}
                           >
@@ -235,7 +236,7 @@ const MyBanks = () => {
                   {weeklyStats.map((day) => (
                     <div key={day.day} className="text-center">
                       <div className="text-sm text-gray-500 mb-2">{day.day}</div>
-                      <div 
+                      <div
                         className="bg-blue-100 rounded-lg p-4 hover:bg-blue-200 transition-colors"
                         style={{ height: `${Math.max(day.questions * 2, 40)}px` }}
                       >
@@ -291,18 +292,18 @@ const MyBanks = () => {
             {/* Achievements Tab */}
             <TabsContent value="achievements" className="animate-fade-in-up">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {achievements.map((achievement, index) => (
-                  <Card 
-                    key={achievement.title} 
+                {achievements.map((achievement) => (
+                  <Card
+                    key={achievement.title}
                     className={`p-6 text-center transition-all duration-300 ${
-                      achievement.unlocked 
-                        ? 'gradient-primary text-white border-0 shadow-lg' 
+                      achievement.unlocked
+                        ? 'gradient-primary text-white border-0 shadow-lg'
                         : 'opacity-60'
                     }`}
                   >
                     <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 ${
-                      achievement.unlocked 
-                        ? 'bg-white/20 text-white' 
+                      achievement.unlocked
+                        ? 'bg-white/20 text-white'
                         : 'bg-gray-100 text-gray-400'
                     }`}>
                       <Trophy className="w-8 h-8" />

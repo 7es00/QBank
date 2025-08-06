@@ -1,17 +1,42 @@
+// src/components/Header.jsx
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, BookOpen, User, ShoppingBag, LogOut } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
+  // التعديل: الرابط الخاص بالسكشن هيكون id بدون slash
   const navigation = [
-    { name: "Question Banks", href: "#", current: true },
-    { name: "My Banks", href: "#my-banks", current: false },
-    { name: "Features", href: "#features", current: false },
+    { name: "Question Banks", href: "/" },
+    { name: "My Banks", href: "/my-banks" },
+    { name: "Features", href: "#features" }, // فقط #features
   ];
+
+  const goToLogin = () => { navigate('/auth') }
+
+  // دالة تنقل للسكشن Features مهما كان مكانك
+  const handleFeaturesClick = (e) => {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      // لو انت في الصفحة الرئيسية، scroll على السكشن
+      const section = document.getElementById("features");
+      if (section) section.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // لو مش في الصفحة الرئيسية، روح للصفحة الرئيسية مع هاش، وبعد التحميل انزل للسكشن
+      navigate("/#features");
+      // حل برمجي للتنقل بعد الوصول (يحتاج تدعمني في الصفحة الرئيسية ب useEffect)
+      setTimeout(() => {
+        const section = document.getElementById("features");
+        if (section) section.scrollIntoView({ behavior: "smooth" });
+      }, 500);
+    }
+  };
 
   return (
     <header className="bg-white/95 backdrop-blur-sm border-b border-border/50 sticky top-0 z-50">
@@ -22,26 +47,43 @@ const Header = () => {
             <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center">
               <BookOpen className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold font-poppins bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="text-xl font-bold font-poppins bg-gradient-to-r from-[#AF0936] to-[#d1426b] bg-clip-text text-transparent">
               QuestionBanks
             </span>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  item.current
-                    ? "text-primary"
-                    : "text-muted-foreground"
-                }`}
-              >
-                {item.name}
-              </a>
-            ))}
+            {navigation.map((item) => {
+              // لو الرابط فيه # يعني سكشن داخلي
+              if (item.href.startsWith("#")) {
+                return (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={handleFeaturesClick}
+                    className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground"
+                  >
+                    {item.name}
+                  </a>
+                );
+              }
+              // روابط الصفحات
+              const isActive =
+                location.pathname === item.href ||
+                (item.href !== "/" && location.pathname.startsWith(item.href));
+              return (
+                <NavLink
+                  key={item.name}
+                  to={item.href}
+                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                    isActive ? "text-primary" : "text-muted-foreground"
+                  }`}
+                >
+                  {item.name}
+                </NavLink>
+              );
+            })}
           </nav>
 
           {/* Desktop Auth Buttons */}
@@ -67,10 +109,10 @@ const Header = () => {
               </>
             ) : (
               <>
-                <Button variant="ghost" size="sm">
+                <Button variant="ghost" size="sm" onClick={goToLogin}>
                   Login
                 </Button>
-                <Button className="btn-primary">
+                <Button className="btn-primary" onClick={goToLogin}>
                   Sign Up
                 </Button>
               </>
@@ -86,19 +128,36 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent>
               <div className="flex flex-col space-y-4 mt-8">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className={`text-lg font-medium transition-colors hover:text-primary ${
-                      item.current
-                        ? "text-primary"
-                        : "text-muted-foreground"
-                    }`}
-                  >
-                    {item.name}
-                  </a>
-                ))}
+                {navigation.map((item) => {
+                  if (item.href.startsWith("#")) {
+                    return (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        onClick={(e) => {
+                          handleFeaturesClick(e);
+                        }}
+                        className="text-lg font-medium transition-colors hover:text-primary text-muted-foreground"
+                      >
+                        {item.name}
+                      </a>
+                    );
+                  }
+                  const isActive =
+                    location.pathname === item.href ||
+                    (item.href !== "/" && location.pathname.startsWith(item.href));
+                  return (
+                    <NavLink
+                      key={item.name}
+                      to={item.href}
+                      className={`text-lg font-medium transition-colors hover:text-primary ${
+                        isActive ? "text-primary" : "text-muted-foreground"
+                      }`}
+                    >
+                      {item.name}
+                    </NavLink>
+                  );
+                })}
                 <div className="border-t pt-4 space-y-2">
                   {isLoggedIn ? (
                     <>
@@ -121,10 +180,10 @@ const Header = () => {
                     </>
                   ) : (
                     <>
-                      <Button variant="ghost" className="w-full">
+                      <Button variant="ghost" className="w-full" onClick={goToLogin}>
                         Login
                       </Button>
-                      <Button className="btn-primary w-full">
+                      <Button className="btn-primary w-full" onClick={goToLogin}>
                         Sign Up
                       </Button>
                     </>
