@@ -1,73 +1,176 @@
-# Welcome to your Lovable project
+# Question Banks - Educational Platform
 
-## Project info
+A modern, responsive web application for students and professionals to access premium question banks across multiple subjects. Built with Next.js, TypeScript, and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/9b899291-bc78-4185-a8dd-7c208ea3d074
+## 🚀 Features
 
-## How can I edit this code?
+- **Comprehensive Question Banks**: Access hundreds of expertly crafted question banks
+- **Multiple Subjects**: Mathematics, Programming, Science, and more
+- **Interactive Learning**: Practice with instant feedback and explanations
+- **Progress Tracking**: Monitor your performance with detailed analytics
+- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile
+- **Modern UI**: Beautiful, intuitive interface with smooth animations
+- **Search & Filter**: Find exactly what you need with advanced search capabilities
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+- **Framework**: Next.js 15.4.6
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: Radix UI
+- **Icons**: Lucide React
+- **State Management**: React Hooks
+- **Build Tool**: Next.js built-in
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/9b899291-bc78-4185-a8dd-7c208ea3d074) and start prompting.
+## 📁 Project Structure
 
-Changes made via Lovable will be committed automatically to this repo.
+```
+src/
+├── app/                    # Next.js app router pages
+│   ├── auth/              # Authentication pages
+│   ├── my-banks/          # User's purchased question banks
+│   ├── question-bank/     # Question bank detail pages
+│   └── globals.css        # Global styles
+├── components/            # React components
+│   ├── auth/             # Authentication components
+│   ├── question-bank/    # Question bank related components
+│   ├── shared/           # Shared components (Header, Footer, etc.)
+│   └── ui/               # Reusable UI components
+├── lib/                  # Utility functions and API
+├── types/                # TypeScript type definitions
+└── assets/               # Static assets (images)
+```
 
-**Use your preferred IDE**
+## 🎯 Key Components
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Question Banks Section
+- Displays available question banks with search functionality
+- Filter by category, level, and price
+- Responsive grid layout with hover effects
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Question Interface
+- Interactive question answering system
+- Progress tracking and analytics
+- Instant feedback with explanations
+- Navigation between questions
 
-Follow these steps:
+### Authentication System
+- Login and registration forms
+- Form validation and error handling
+- Responsive design with animations
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🚀 Getting Started
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Prerequisites
 
-# Step 3: Install the necessary dependencies.
-npm i
+- Node.js 18+ 
+- npm or yarn
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd questionbanks
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Run the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build for Production
 
-**Use GitHub Codespaces**
+```bash
+npm run build
+npm start
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📱 Pages & Routes
 
-## What technologies are used for this project?
+- `/` - Home page with question banks overview
+- `/auth` - Authentication page (login/register)
+- `/my-banks` - User's purchased question banks
+- `/question-bank/[id]` - Individual question bank details
 
-This project is built with:
+## 🎨 Design System
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Colors
+- **Primary**: `#AF0936` (Deep Pink)
+- **Secondary**: `#d1426b` (Light Pink)
+- **Accent**: `#F3729F` (Pink)
+- **Background**: White and gray gradients
 
-## How can I deploy this project?
+### Typography
+- **Primary Font**: Inter (UI elements)
+- **Secondary Font**: Poppins (Headings)
 
-Simply open [Lovable](https://lovable.dev/projects/9b899291-bc78-4185-a8dd-7c208ea3d074) and click on Share -> Publish.
+### Components
+- **Cards**: Rounded corners with subtle shadows
+- **Buttons**: Gradient backgrounds with hover effects
+- **Forms**: Clean, accessible input fields
+- **Animations**: Smooth transitions and micro-interactions
 
-## Can I connect a custom domain to my Lovable project?
+## 🔧 Configuration
 
-Yes, you can!
+### Tailwind CSS
+The project uses Tailwind CSS v4 with custom configuration for:
+- Custom color palette
+- Font families
+- Animation utilities
+- Responsive breakpoints
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### TypeScript
+Strict TypeScript configuration with:
+- Proper type definitions for all components
+- Interface definitions for data structures
+- API type safety
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 📊 Mock Data
+
+The application includes comprehensive mock data for:
+- Question banks across multiple subjects
+- Sample questions with explanations
+- User authentication states
+- Progress tracking data
+
+## 🧪 Testing
+
+Run the linter to check for code quality:
+```bash
+npm run lint
+```
+
+## 🚀 Deployment
+
+The application is ready for deployment on:
+- Vercel (recommended)
+- Netlify
+- Any static hosting service
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🆘 Support
+
+For support, please open an issue in the GitHub repository or contact the development team.
+
+---
+
+**Built with ❤️ using Next.js, TypeScript, and Tailwind CSS**
